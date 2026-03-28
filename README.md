@@ -10,24 +10,25 @@ A differential drive robot capable of detecting racks in a warehouse environment
   <tr>
     <td align="center" style="padding: 2px;">
       <img src="https://github.com/user-attachments/assets/bddc8851-ff49-494c-bcbf-e8032b40b294" width="240"/><br/>
-      <sub>Simulation img1</sub>
+      <sub>Simulation image 1</sub>
     </td>
     <td align="center" style="padding: 2px;">
       <img src="https://github.com/user-attachments/assets/2cc7b05a-e7bc-4033-a65b-5ccbf8a9e6a1" width="240"/><br/>
-      <sub>Hardware img1</sub>
+      <sub>Hardware image 1</sub>
     </td>
     <td align="center" style="padding: 2px;">
-      <img src="https://github.com/user-attachments/assets/ac818568-12dc-4de0-8bae-125378601199" width="240"/><br/>
-      <sub>Simulation img2</sub>
+      <img src="https://github.com/user-attachments/assets/245444e1-2ab3-423a-a6ae-8541835ed90b" width="240"/><br/>
+      <sub>Simulation image 2</sub>
     </td>
     <td align="center" style="padding: 2px;">
       <img src="https://github.com/user-attachments/assets/86af9a7d-d081-4d5b-af94-748ecc155b51" width="240"/><br/>
-      <sub>Hardware img2</sub>
+      <sub>Hardware image 2</sub>
     </td>
   <tr>
     
 </table>
 ---
+
 
 ## System Architecture
 
