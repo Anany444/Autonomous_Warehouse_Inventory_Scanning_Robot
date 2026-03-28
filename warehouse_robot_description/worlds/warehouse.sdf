@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <world name="warehouse_world">
+
+    <gravity>0 0 -9.8</gravity>
+
+    <physics type="ode">
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <max_contacts>10</max_contacts>
+    </physics>
+
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <plugin name='gz::sim::systems::Imu' filename='gz-sim-imu-system'/>
+    <plugin name='gz::sim::systems::Magnetometer' filename='gz-sim-magnetometer-system'/>
+    <plugin name='gz::sim::systems::Altimeter' filename='gz-sim-altimeter-system'/>
+    <plugin
+      filename="ignition-gazebo-forcetorque-system"
+      name="ignition::gazebo::systems::ForceTorque">
+    </plugin>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <gui fullscreen='false'>
+
+  <!-- ONLY 3D VIEW -->
+  <plugin name='3D View' filename='GzScene3D'>
+    <gz-gui>
+      <title>3D View</title>
+      <property type='bool' key='showTitleBar'>0</property>
+      <property type='string' key='state'>docked</property>
+    </gz-gui>
+
+    <engine>ogre2</engine>
+    <scene>scene</scene>
+
+    <ambient_light>0.6 0.6 0.6</ambient_light>
+    <background_color>0.9 0.9 0.9</background_color>
+
+    <camera_pose>-6 0 6 0 0.5 0</camera_pose>
+  </plugin>
+
+</gui>
+
+  
+
+    <light name='sunUTC' type='directional'>
+      <pose>0 0 500 0 0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0.001 0.625 -0.78000000000000003</direction>
+      <diffuse>0.903999984 0.903999984 0.903999984 1</diffuse>
+      <specular>0.270999998 0.270999998 0.270999998 1</specular>
+      <attenuation>
+        <range>2000</range>
+        <linear>0</linear>
+        <constant>1</constant>
+        <quadratic>0</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+
+
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>25 25</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name="ground_vis">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>25 25</size>
+            </plane>
+          </geometry>
+          <material>
+              <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+            <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+            <specular>0.800000012 0.800000012 0.800000012 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="rack_1">
+      <static>true</static>
+      <pose>-6.733 -2.67 -70.18 1.57 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><mesh><uri>meshes/rackx1000.obj</uri></mesh></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><mesh><uri>meshes/rackx1000.obj</uri></mesh></geometry>
+          <material><ambient>0.6 0.15 0.15 1</ambient><diffuse>0.67 0.17 0.15 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="rack_2">
+      <static>true</static>
+      <pose>-3.713 -2.79 -70.18 1.57 0 1.57</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><mesh><uri>meshes/rackx1000.obj</uri></mesh></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><mesh><uri>meshes/rackx1000.obj</uri></mesh></geometry>
+            <material><ambient>0.6 0.15 0.15 1</ambient><diffuse>0.67 0.17 0.15 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="rack_3">
+      <static>true</static>
+      <pose>-3.713 -3.99 -70.18 1.57 0 1.57</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><mesh><uri>meshes/rackx1000.obj</uri></mesh></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><mesh><uri>meshes/rackx1000.obj</uri></mesh></geometry>
+          <material><ambient>0.6 0.15 0.15 1</ambient><diffuse>0.67 0.17 0.15 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="rack_4">
+      <static>true</static>
+      <pose>-7.943 -2.67 -70.18 1.57 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><mesh><uri>meshes/rackx1000.obj</uri></mesh></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><mesh><uri>meshes/rackx1000.obj</uri></mesh></geometry>
+            <material><ambient>0.6 0.15 0.15 1</ambient><diffuse>0.67 0.17 0.15 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="rack_5">
+      <static>true</static>
+      <pose>-9.133 -2.67 -70.18 1.57 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><mesh><uri>meshes/rackx1000.obj</uri></mesh></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><mesh><uri>meshes/rackx1000.obj</uri></mesh></geometry>
+          <material><ambient>0.6 0.15 0.15 1</ambient><diffuse>0.67 0.17 0.15 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_north">
+      <static>true</static>
+      <pose>-5.373 0.0700 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>4.2 0.01 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>4.2 0.01 2</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_south">
+      <static>true</static>
+      <pose>-5.373 -3.1 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>4.2 0.01 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>4.2 0.01 2</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.7 0.7 0.7 1</specular></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_east">
+      <static>true</static>
+      <pose>-3.273 -1.55 1 0 0 1.5708</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>3.24 0.01 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>3.24 0.01 2</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_west">
+      <static>true</static>
+      <pose>-7.473 -2.0 1 0 0 1.5708</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>2.2 0.01 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>2.2 0.01 2</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="outer_wall_north">
+      <static>true</static>
+      <pose>-6.173 0.5 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>7 0.3 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>7 0.3 2</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="outer_wall_south">
+      <static>true</static>
+      <pose>-6.173 -4.5 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>7 0.3 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>7 0.3 2</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="outer_wall_east">
+      <static>true</static>
+      <pose>-2.673 -2.0 1 0 0 1.5708</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>5 0.3 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>5 0.3 2</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="outer_wall_west">
+      <static>true</static>
+      <pose>-9.673 -2.0 1 0 0 1.5708</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>5 0.3 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>5 0.3 2</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+  <!-- ================= R1 ================= -->
+<model name="r1_q1"><static>true</static><pose>-4.1376 -2.63 0.2 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r1q1.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r1_q2"><static>true</static><pose>-4.524 -2.63 0.65 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r1q2.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r1_q3"><static>true</static><pose>-4.6248 -2.63 1.0 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r1q3.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r1_q4"><static>true</static><pose>-4.224 -2.63 1.35 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r1q4.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r1_q5"><static>true</static><pose>-4.804 -2.63 1.6 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r1q5.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+
+<!-- ================= R2 ================= -->
+<model name="r2_q1"><static>true</static><pose>-3.7458 -0.4075 0.2 1.57 0 1.57</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r2q1.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r2_q2"><static>true</static><pose>-3.7458 -0.3175 0.65 1.57 0 1.57</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r2q2.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r2_q3"><static>true</static><pose>-3.7458 -0.2375 1.0 1.57 0 1.57</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r2q3.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r2_q4"><static>true</static><pose>-3.7458 -0.3575 1.35 1.57 0 1.57</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r2q4.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r2_q5"><static>true</static><pose>-3.7458 -0.2775 1.6 1.57 0 1.57</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r2q5.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+
+<!-- ================= R3 ================= -->
+<model name="r3_q1"><static>true</static><pose>-3.7458 -1.6075 0.2 1.57 0 1.57</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r3q1.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r3_q2"><static>true</static><pose>-3.7458 -1.5175 0.65 1.57 0 1.57</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r3q2.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r3_q3"><static>true</static><pose>-3.7458 -1.4375 1.0 1.57 0 1.57</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r3q3.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r3_q4"><static>true</static><pose>-3.7458 -1.5575 1.35 1.57 0 1.57</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r3q4.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r3_q5"><static>true</static><pose>-3.7458 -1.4775 1.6 1.57 0 1.57</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r3q5.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+
+<!-- ================= R4 ================= -->
+<model name="r4_q1"><static>true</static><pose>-5.4516 -2.63 0.2 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r4q1.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r4_q2"><static>true</static><pose>-5.3716 -2.63 0.65 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r4q2.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r4_q3"><static>true</static><pose>-5.9216 -2.63 1.0 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r4q3.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r4_q4"><static>true</static><pose>-5.4716 -2.63 1.35 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r4q4.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r4_q5"><static>true</static><pose>-5.3516 -2.63 1.6 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r4q5.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+
+<!-- ================= R5 ================= -->
+<model name="r5_q1"><static>true</static><pose>-6.78 -2.63 0.2 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r5q1.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r5_q2"><static>true</static><pose>-6.70 -2.63 0.65 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r5q2.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r5_q3"><static>true</static><pose>-6.64 -2.63 1.0 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r5q3.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r5_q4"><static>true</static><pose>-6.80 -2.63 1.35 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r5q4.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+<model name="r5_q5"><static>true</static><pose>-6.68 -2.63 1.6 1.57 0 0</pose><link name="link"><visual name="frame"><geometry><box><size>0.13 0.19 0.01</size></box></geometry><material><diffuse>1 1 1 1</diffuse><emmisive>0 0 0 1</emmisive></material></visual><visual name="qr"><pose>0 0 -0.01 3.1416 0 0</pose><cast_shadows>false</cast_shadows><geometry><plane><normal>0 0 1</normal><size>0.1 0.1</size></plane></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><emissive>0 0 0 1</emissive><pbr><metal><albedo_map>textures/r5q5.png</albedo_map><metalness>0.0</metalness><roughness>1.0</roughness></metal></pbr></material></visual></link></model>
+</world>
+</sdf>
