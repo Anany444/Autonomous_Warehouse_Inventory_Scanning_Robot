@@ -2,11 +2,31 @@
 A differential drive robot capable of detecting racks in a warehouse environment, autonomously navigates to them and scan the contents by detecting and decoding the qr code placed on each shelf.
 
 ---
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/6b3d509c-c802-48ed-a41d-49db0b997484" width="600" controls></video>
+</p>
 
-
-https://github.com/user-attachments/assets/6b3d509c-c802-48ed-a41d-49db0b997484
-
-
+---<table align="center" style="border-collapse: collapse;">
+  <tr>
+    <td align="center" style="padding: 2px;">
+      <img src="https://github.com/user-attachments/assets/bddc8851-ff49-494c-bcbf-e8032b40b294" width="240"/><br/>
+      <sub>Simulation img1</sub>
+    </td>
+    <td align="center" style="padding: 2px;">
+      <img src="https://github.com/user-attachments/assets/2cc7b05a-e7bc-4033-a65b-5ccbf8a9e6a1" width="240"/><br/>
+      <sub>Hardware img1</sub>
+    </td>
+    <td align="center" style="padding: 2px;">
+      <img src="https://github.com/user-attachments/assets/ac818568-12dc-4de0-8bae-125378601199" width="240"/><br/>
+      <sub>Simulation img2</sub>
+    </td>
+    <td align="center" style="padding: 2px;">
+      <img src="https://github.com/user-attachments/assets/86af9a7d-d081-4d5b-af94-748ecc155b51" width="240"/><br/>
+      <sub>Hardware img2</sub>
+    </td>
+  <tr>
+    
+</table>
 ---
 
 ## System Architecture
