@@ -1,7 +1,6 @@
 # Autonomous_Warehouse_Inventory_Scanning_Robot
 A differential drive robot capable of detecting racks in a warehouse environment, autonomously navigates to them and scan the contents by detecting and decoding the qr code placed on each shelf.
 
----
 <p align="center">
   <video src="https://github.com/user-attachments/assets/6b3d509c-c802-48ed-a41d-49db0b997484" width="600" controls></video>
 </p>
