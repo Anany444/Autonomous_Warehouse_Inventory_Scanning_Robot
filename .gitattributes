@@ -1,0 +1,2 @@
+# Ignore third-party ROS 2 drivers in GitHub language statistics
+laser_scan_matcher/** linguist-vendored
